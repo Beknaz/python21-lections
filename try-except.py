@@ -135,3 +135,6 @@ else:
     print("все ок")
 finally:
     print('finally')
+
+
+изменено
