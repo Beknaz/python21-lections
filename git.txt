@@ -1,0 +1,4 @@
+git init    -   создает репозиторий
+git add .   -   просто пишем эту команду
+git commit -m 'massage'     - cоздаем новую версию 
+git push origin master  -   закидываем версию на гидхаб
