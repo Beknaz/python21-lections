@@ -1,27 +1,28 @@
-n1 = float(input('введите первое значение:'))
-n2 = float(input('введите второе значение:'))
-do = (input('Выберите операцию из следующих + - * / % ** // '))
-if do == '+':
-    result = n1 + n2
-    print("ответ:", int(result))
-elif do == '-':
-    result = n1 - n2
-    print("ответ:", result)
-elif do == '/':
-    result = n1 / n2
-    print("ответ:", result)
-elif do == '*':
-    result = n1 * n2
-    print("ответ:", result)
-elif do == '**':
-    result = n1 ** n2
-    print("ответ:", result)
-elif do == '%':
-    result = n1 % n2
-    print(result)
-elif do == '//':
-    result = n1 // n2
-    print(result)
-else:
-    print("Данной операции нет в системе")
+# n1 = float(input('введите первое значение:'))
+# n2 = float(input('введите второе значение:'))
+# do = (input('Выберите операцию из следующих + - * / % ** // '))
+# if do == '+':
+#     result = n1 + n2
+#     print("ответ:", int(result))
+# elif do == '-':
+#     result = n1 - n2
+#     print("ответ:", result)
+# elif do == '/':
+#     result = n1 / n2
+#     print("ответ:", result)
+# elif do == '*':
+#     result = n1 * n2
+#     print("ответ:", result)
+# elif do == '**':
+#     result = n1 ** n2
+#     print("ответ:", result)
+# elif do == '%':
+#     result = n1 % n2
+#     print(result)
+# elif do == '//':
+#     result = n1 // n2
+#     print(result)
+# else:
+#     print("Данной операции нет в системе")
+
     

@@ -234,11 +234,136 @@ print(list(new_list))
 #         list1.append(b)
 # print(list(list1))
 
-sum = 200
-while sum >= 0:
-    num = int(input())
-    sum = sum - num
-    if num > sum:
-        print('error')
+# sum = 200
+# while sum >= 0:
+#     num = int(input())
+#     sum = sum - num
+#     if num > sum:
+#         print('error')
+#     else:
+#         print('остаток:', sum)
+
+"""
+1) Дан список в котором хранится строка. Разрежьте его на две равные части (если длина строки нечетная, то длина первой части должна быть на один символ больше). Переставьте эти две части местами, при этом каждый символ должен являться отдельной строкой, результат запишите в новый список и выведите на экран.
+"""
+name_of_list = ['BeknazNazarbek']
+a = int((len(name_of_list[0])) / 2)
+if int(len(name_of_list[0])) % 2 != 0:
+    a = int((len(name_of_list[0])) / 2) + 1
+b = name_of_list[0][:a]
+c = name_of_list[0][a:]
+new_list = c + b
+print(list(new_list))
+
+"""
+2) Дан список, состоящий ровно из двух строк. Переставьте эти слова местами. Результат запишите в список и выведите получившийся результат.
+"""
+list_ = ['asdf', 'asdfr']
+list1 = list(list_.copy())
+list1.reverse()
+print(list1)
+"""
+3) Даны два множества. С помощью определенного метода (оператора) найдите пересечение множеств:
+"""
+a = {1, 2, 3, 4, 5, 6}  
+b = {4, 3, 6 ,1, 8, 9}
+print(a.intersection(b)) 
+print(a & b)
+"""
+4) Четверо коллег собрались на обед. Но они не могут решить, где им пообедать, так как у каждого свои вкусовые предпочтения. Помогите найти им выход в данной ситуации. Данные:
+
+-Тилек хочет покушать в Dodo или в ImperiaPizza, ну или в крайнем случае FreshBox.
+-Тимур хочет покушать шашлык в OchakKebab или рамен в FreshBox.
+-Александр очень хочет вафли с FreshBox либо KFC.
+-Элину устраивает любой из вариантов. 
+
+Напишите код, который сможет определить, в какое место им лучше пойти.
+"""
+Tilek = ['Dodo', 'ImperiaPizza', 'Freshbox']
+Timur = ['OchakKebab', 'Freshbox']
+Alex = ['Freshbox', 'KFC']
+Elina= ['Freshbox', 'KFC', 'OchakKebab', 'ImperiaPizza', 'Dodo']
+dict = {}
+for i in Tilek:
+    if i in dict:
+        dict[i] += 1
     else:
-        print('остаток:', sum)
+        dict[i] = 1
+for i in Timur:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+for i in Alex:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+for i in Elina:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+print(max(dict, key=dict.get))
+
+
+# pizda = {'Tilek': ['Dodo', 'ImperiaPizza', 'Freshbox'],
+# 'Timur': ['OchakKebab', 'FreshBox'],
+# 'Alex': ['Freshbox', 'KFC'],
+# 'Beknaz': ['Freshbox', 'KFC', 'OchakKebab', 'ImperiaPizza', 'Dodo']}
+# dict = {}
+# for element in pizda:
+#     for i in pizda[element]:
+#         if i in dict:
+#             dict[i] += 1
+#         else:
+#             dict[i] = 1
+# print(max(dict, key=dict.get))
+"""
+5) Создайте словарь где ключами будут фрукты, а значением их цены. Удалите те элементы, значение которых будет чётным.
+"""
+fruit = {'banan': 45, 'alma': 50, 'almurut': 61}
+new_fruit = {k:v for k, v in fruit.items() if v % 2 != 0}
+print(new_fruit)
+
+"""
+6) Создайте словарь, где значениями будут являться числа. Найдите сумму этих значений.
+"""
+a = {'b':5, 'a':10, 'c':4}
+b = {v for v in a.values()}
+print(int(sum(b)))
+"""
+7) Создайте словарь из чисел от 1 до 10, где ключами будут сами числа, а значениями их квадраты.
+"""
+a = {i:i ** 2 for i in range(1,11)}
+print(a)
+"""
+8) Дан словарь, значениями в котором являются другие словари. Замените внутренние словари их значениями. Например: my_dict = {'first': {'a': 1}, 'second': {'b': 2}} -> {'first': 1, 'second': 2}
+"""
+my_dict = {'first': {'a': 1}, 'second': {'b': 2}}
+new_dict = {k:val for k, v in my_dict.items() for val in v.values()}
+print(new_dict)
+"""
+9) Дан словарь. Попытайтесь получить значение по ключу. Обработайте ошибку, возникающую в том случае, если такого ключа нет.
+"""
+dict2 = {1:2, 3:453254, 5:64365}
+a = int(input())
+if a in dict2:
+ print(dict2[a])
+else:
+ print('ключа', a, 'не существует')
+
+# if dict2.get(a) == None:
+#     print('Ключа', a, 'не существует')
+# else:
+#     print(dict2.get(a))
+
+
+"""
+10) Запросите у пользователя сумму, которая у него сейчас есть в бумажнике. Если он введёт сумму, меньшую чем 0, то выбросите исключение с текстом "Сумма не может быть отрицательной!"
+"""
+summa = int(input())
+if summa < 0:
+    print("Сумма не может быть отрицательной!")
+else:
+    print('У вас есть', summa, 'сомов')
