@@ -17,6 +17,7 @@ b = 10.34
 # decimal - точное вещественное число
 # чтобы использовать десимал нужно его импортировать
 from decimal import Decimal
+import numbers
 c = Decimal(0.1)
 
 # complex - комплексные числа
@@ -50,4 +51,11 @@ complex(1, 5)
  # round - функция которая округляет число
  # sqrt - функция для нахождения корня числа
  # для работы нужно ее импортировать ищ библеотеки math 
- from math import sqrt
+
+
+num1 = list(range(1, 5))
+num2 = ''
+for i in nums:
+    num2 += str(i)
+    print(num2)
+
