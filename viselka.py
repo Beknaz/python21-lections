@@ -107,7 +107,7 @@ while s==1:
             guess = input("\n\nВведите букву: ").upper()
             while guess in used:
                 print("Вы уже предлагали букву: ", guess)
-                guess = input("\n\nВведите букву: ").upper()
+                guess1 = input("\n\nВведите букву: ").upper()
             used.append(guess)
             if guess in word:
                 print("\nДа! Буква", guess, "есть в слове!")

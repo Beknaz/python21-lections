@@ -374,100 +374,122 @@
 #     return ' '.join([word.lower() if len(word) < 3 else word.title() for word in title.split()])
 
 
-"""
-1) Создайте функцию, которая будет принимать 2 числа, складывать их и возвращать результат сложения.
-"""
-def sum1(a, b):
-  return a + b
-print(sum1(6, 4))
+# """
+# 1) Создайте функцию, которая будет принимать 2 числа, складывать их и возвращать результат сложения.
+# """
+# def sum1(a, b):
+#   return a + b
+# print(sum1(6, 4))
 
-# Второй вариант более универсальный
-from functools import reduce
-def multiply_list(nums):
-    total = reduce(lambda a, b: a + b, nums)
-    return total
+# # Второй вариант более универсальный
+# from functools import reduce
+# def multiply_list(nums):
+#     total = reduce(lambda a, b: a + b, nums)
+#     return total
 
-numbers = [4, 6, 4, 10]
+# numbers = [4, 6, 4, 10]
 
-print(multiply_list(numbers))
+# print(multiply_list(numbers))
 
 
 
-"""
-2) Создайте функцию, которая принимает два обязательных параметра. Задача этой функции выводить тип принятых аргументов.
-"""
-def type1(a, b):
-  print(type(a))
-  print(type(b))
-type1(4, 'fdga')
+# """
+# 2) Создайте функцию, которая принимает два обязательных параметра. Задача этой функции выводить тип принятых аргументов.
+# """
+# def type1(a, b):
+#   print(type(a))
+#   print(type(b))
+# type1(4, 'fdga')
 
-"""
-3) Напишите функцию, которая принимает список чисел и возвращает их произведение.
-"""
-def mul1(a, b):
-  return(a * b)
-print(mul1(3, 10))
-# второй вариант
-# Import Reduce есть выше.
-def multiply_list(nums):
-    total = reduce(lambda a, b: a * b, nums)
-    return total
+# """
+# 3) Напишите функцию, которая принимает список чисел и возвращает их произведение.
+# """
+# def mul1(a, b):
+#   return(a * b)
+# print(mul1(3, 10))
+# # второй вариант
+# # Import Reduce есть выше.
+# def multiply_list(nums):
+#     total = reduce(lambda a, b: a * b, nums)
+#     return total
 
-numbers = [4, 6, 4, 10]
+# numbers = [4, 6, 4, 10]
 
-print(multiply_list(numbers))
+# print(multiply_list(numbers))
 
-"""
-4) Мурат с друзья на выходных решил собратся и пойти в ночной клуб.
-Но в ночной клуб пропускают только тех, кому 17+.
-Мурату - 24 лет, Эржану - 21 лет, Чынгызу - 24 лет, Алтынай - 17 лет, Асеме - 16 лет.
-Напишите программу которая определяет кого пустить в ночной клуб а кого нет.
-"""
-fans_1 = {'Murat': 24, 'Erzhan': 21, 'Chyngyz': 24, 'Altynay': 17, 'Asema': 16}
-for name, age in fans_1.items():
-  if age < 17:
-    print(f'{name}, Вы не может пройти в клуб')
-  else:
-    print(f'{name}, Вы можете пройти в клуб')
+# """
+# 4) Мурат с друзья на выходных решил собратся и пойти в ночной клуб.
+# Но в ночной клуб пропускают только тех, кому 17+.
+# Мурату - 24 лет, Эржану - 21 лет, Чынгызу - 24 лет, Алтынай - 17 лет, Асеме - 16 лет.
+# Напишите программу которая определяет кого пустить в ночной клуб а кого нет.
+# """
+# fans_1 = {'Murat': 24, 'Erzhan': 21, 'Chyngyz': 24, 'Altynay': 17, 'Asema': 16}
+# for name, age in fans_1.items():
+#   if age < 17:
+#     print(f'{name}, Вы не может пройти в клуб')
+#   else:
+#     print(f'{name}, Вы можете пройти в клуб')
 
-"""
-5) Напишите функцию, которая принимает строку и выводит количество гласных, согласных букв и остальных символов. Используйте только кириллические символы
-"""
-def count_symbols(str_):
-    vowels = 0
-    consonants = 0
-    symbols = 0
+# """
+# 5) Напишите функцию, которая принимает строку и выводит количество гласных, согласных букв и остальных символов. Используйте только кириллические символы
+# """
+# def count_symbols(str_):
+#     vowels = 0
+#     consonants = 0
+#     symbols = 0
     
-    for l in str_.lower():
-        if l in "йуеыаоэяиюё":
-            vowels += 1 
-        elif l in "цкнгшщзмчвфжрлдтсп":
-            consonants += 1
-        else:
-            symbols += 1
-    return f'Количество гласных: {vowels}, согласных: {consonants}, остальных символов: {symbols}'
+#     for l in str_.lower():
+#         if l in "йуеыаоэяиюё":
+#             vowels += 1 
+#         elif l in "цкнгшщзмчвфжрлдтсп":
+#             consonants += 1
+#         else:
+#             symbols += 1
+#     return f'Количество гласных: {vowels}, согласных: {consonants}, остальных символов: {symbols}'
 
-print(count_symbols('ма46476иые ркоч пиав оену'))
+# print(count_symbols('ма46476иые ркоч пиав оену'))
 
-"""
-6) Дан списка из чисел. Проверьте, что все числа больше трёх.
-"""
-list_ = [5, 5423, 65, 5, 45]
-result = all(num > 3 for num in list_)
-print(result)
+# """
+# 6) Дан списка из чисел. Проверьте, что все числа больше трёх.
+# """
+# list_ = [5, 5423, 65, 5, 45]
+# result = all(num > 3 for num in list_)
+# print(result)
   
+# """
+# 7) Дан список из имён. Найдите самое длинное имя из списка функцией reduce.
+# """
+# list2 = ['Maksat', 'Aza', 'Beka']
+# def vtoroy_varik(a, b):
+#   if len(a)>len(b):
+#     return a
+#   else:
+#     return b
+# # Import Reduce есть выше.
+# result = reduce(vtoroy_varik, list2)
+# print(result)
+# # второй вариант 
+# res = max(list2, key=len)
+# print(res)
+
+
 """
-7) Дан список из имён. Найдите самое длинное имя из списка функцией reduce.
+1)	В текстовом файле посчитать количество строк, а также для каждой отдельной строки определить количество в ней символов и слов.
 """
-list2 = ['Maksat', 'Aza', 'Beka']
-def vtoroy_varik(a, b):
-  if len(a)>len(b):
-    return a
-  else:
-    return b
-# Import Reduce есть выше.
-result = reduce(vtoroy_varik, list2)
-print(result)
-# второй вариант 
-res = max(list2, key=len)
-print(res)
+with open('text.txt') as file:
+  lines = 0
+  words = 0
+  symbols = 0
+
+  for line in file:
+      lines += 1
+      words += len(line.split())
+      symbols += len(line.strip('\n'))
+
+  print("Lines:", lines)
+  print("Words:", words)
+  print("Symbols:", symbols)
+  file.close()
+"""
+2)	Спарсить vesti.kg только названия новостей(title) и записать результат в csv файл
+"""

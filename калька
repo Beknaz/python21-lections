@@ -195,7 +195,12 @@ while s==1:
     else:
         print('Введено неправильное значение. Введите Да или Нет')
 
+text = 'hwlh'
 
+# file = open('text.txt')
+
+
+    
            
 
 
