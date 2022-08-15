@@ -1,19 +1,23 @@
-from itertools import product
 from django.shortcuts import get_object_or_404
-from rest_framework import mixins
+from rest_framework import mixins, filters
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.decorators import api_view, action
 from .models import Product, Category, Comment, Like, Rating
 from .serializers import ProductSerializer, CategorySerializer, CommentSerializer
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsAuthor
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework import generics
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.OrderingFilter]
+    orfering_fields = ['title', 'price', 'average_rating'] 
+
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -30,7 +34,14 @@ class ProductViewSet(ModelViewSet):
         serializer = ProductSerializer(queryset, many=True, context={"request":request})
         return Response(serializer.data, 200)
 
+    @action(methods=["GET"], detail=False)
+    def order_by_rating(self, request):
+        rating = request.query_params.get("rating")
+        queryset =self.get_queryset()
 
+        queryset = sorted(queryset, key=lambda product: product.average_rating, reverse=True)
+        serializer = ProductSerializer(queryset, many=True, context={"request": request})
+        return Response(serializer.data)
 
 
 class CategoryViewSet(mixins.CreateModelMixin, 
@@ -46,12 +57,13 @@ class CommentViewSet(mixins.CreateModelMixin,
                     GenericViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAuthor]
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
         context["request"] = self.request
         return context
+
 
         
 @api_view(["GET"])
@@ -84,3 +96,8 @@ def add_rating(request, p_id):
     else:
         Rating.objects.create(user=user, product=product, value=value)
     return Response("rating created", 201)
+
+
+
+
+

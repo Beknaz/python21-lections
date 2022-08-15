@@ -13,7 +13,8 @@ class Product(models.Model):
     desc = models.TextField()
     image = models.ImageField(upload_to='products', blank=True, null=True)
 
-    def get_average_rating(self):
+    @property
+    def average_rating(self):
         ratings = [rating.value for rating in self.ratings.all()]
         if ratings:
             return sum(ratings) / len(ratings)
@@ -33,3 +34,5 @@ class Comment(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='likes', on_delete=models.CASCADE)
+
+

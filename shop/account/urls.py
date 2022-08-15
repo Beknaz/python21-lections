@@ -2,10 +2,8 @@ from django.urls import path
 from .views import RegisterAPIView, activate
 
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 urlpatterns = [
     path('register/', RegisterAPIView.as_view()),
