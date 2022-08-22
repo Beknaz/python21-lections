@@ -91,10 +91,11 @@ def add_rating(request, p_id):
     
     if Rating.objects.filter(user=user, product=product).exists():
         rating = Rating.objects.get(user=user, product=product)
-        rating.value=value
+        rating.value = value
         rating.save()
     else:
         Rating.objects.create(user=user, product=product, value=value)
+    
     return Response("rating created", 201)
 
 

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
+
 User = get_user_model()
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -23,3 +24,4 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print('CREATING USER WITH DATA:', validated_data)
         return User.objects.create_user(**validated_data)
+

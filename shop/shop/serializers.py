@@ -29,6 +29,7 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment

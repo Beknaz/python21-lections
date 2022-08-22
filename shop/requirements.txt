@@ -5,3 +5,5 @@ djangorestframework-simplejwt
 pillow
 drf-yasg
 python-decouple
+celery==5.2.7
+django-rest-passwordreset==1.2.1
